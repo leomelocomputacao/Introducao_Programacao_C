@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ECD1053E-299A-417C-9A79-F8FF0913F350}</ProjectGuid>
+    <RootNamespace>ProjetoPGCA028Exercicios</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="2014_04_15_ListaEmSala_BubbleSort.cpp" />
+    <ClCompile Include="2014_04_10_ListaEmSala_BuscaDeElementosEmVetor.cpp" />
+    <ClCompile Include="2014_05_06_ListaEmSala_ApresentarStringAoContrario.cpp" />
+    <ClCompile Include="2014_05_06_ListaEmSala_TestaSIMouNAOemString.cpp" />
+    <ClCompile Include="2014_05_06_ListaEmSala_TestesEmString_VariasOperacoes.cpp" />
+    <ClCompile Include="2014_05_15_ListaEmSala_MatrizSomaDosElementosDaLinha.cpp" />
+    <ClCompile Include="2014_05_15_ListaEmSala_MediaDiagonalPMaiorEMenor.cpp" />
+    <ClCompile Include="2014_05_15_ListaEmSala_MultiplicacaoDeNumeroPorMatriz.cpp" />
+    <ClCompile Include="2014_06_03_ListaEmSala_ArquivoDeTexto.cpp" />
+    <ClCompile Include="2014_06_10_ListaEmSala_CadastroEmArquivo.cpp" />
+    <ClCompile Include="2014_06_12_ListaEmSala_AlocacaoDinamicaDeMatrizes.cpp" />
+    <ClCompile Include="2014_06_12_ListaEmSala_AlocacaoDinamicaDeVetores.cpp" />
+    <ClCompile Include="2014_06_12_ListaEmSala_AlocacaoDinamica.cpp" />
+    <ClCompile Include="2014_06_26_ListaEmSala_ListaEncadeada.cpp" />
+    <ClCompile Include="JogoDeDados.cpp" />
+    <ClCompile Include="L10Q01.cpp" />
+    <ClCompile Include="L10Q02.cpp" />
+    <ClCompile Include="L11Q01.cpp" />
+    <ClCompile Include="L11Q02.cpp" />
+    <ClCompile Include="L11Q03.cpp" />
+    <ClCompile Include="L11Q04.cpp" />
+    <ClCompile Include="L5Q01.cpp" />
+    <ClCompile Include="L5Q02.cpp" />
+    <ClCompile Include="L5Q03.cpp" />
+    <ClCompile Include="L5Q04.cpp" />
+    <ClCompile Include="L6Q01.cpp" />
+    <ClCompile Include="L6Q02.cpp" />
+    <ClCompile Include="L6Q03.cpp" />
+    <ClCompile Include="L6Q04.cpp" />
+    <ClCompile Include="L6Q05.cpp" />
+    <ClCompile Include="L7Q01.cpp" />
+    <ClCompile Include="L7Q02.cpp" />
+    <ClCompile Include="L7Q03A.cpp" />
+    <ClCompile Include="L7Q03B.cpp" />
+    <ClCompile Include="L7Q03C.cpp" />
+    <ClCompile Include="L7Q03D.cpp" />
+    <ClCompile Include="L7Q03E.cpp" />
+    <ClCompile Include="L8Q01.cpp" />
+    <ClCompile Include="L8Q02.cpp" />
+    <ClCompile Include="L8Q03.cpp" />
+    <ClCompile Include="L8Q04.cpp" />
+    <ClCompile Include="L8Q05.cpp" />
+    <ClCompile Include="L8Q06.cpp" />
+    <ClCompile Include="L8Q07.cpp" />
+    <ClCompile Include="L9Q01.cpp" />
+    <ClCompile Include="L9Q02.cpp" />
+    <ClCompile Include="L9Q03.cpp" />
+    <ClCompile Include="L9Q04.cpp" />
+    <ClCompile Include="LExtra_PonteirosXFuncoesQ01.cpp" />
+    <ClCompile Include="LExtra_PonteirosXFuncoesQ02A.cpp" />
+    <ClCompile Include="LExtra_PonteirosXFuncoesQ02B.cpp" />
+    <ClCompile Include="_CodigoDeExemplo.cpp" />
+    <ClCompile Include="2014_03_25_ListaEmSala_Fatorial.cpp" />
+    <ClCompile Include="L2Q01.cpp" />
+    <ClCompile Include="L2Q02.cpp" />
+    <ClCompile Include="L2Q03.cpp" />
+    <ClCompile Include="L2Q04.cpp" />
+    <ClCompile Include="L2Q05.cpp" />
+    <ClCompile Include="L2Q06.cpp" />
+    <ClCompile Include="L2Q07.cpp" />
+    <ClCompile Include="L2Q08.cpp" />
+    <ClCompile Include="L3Q01.cpp" />
+    <ClCompile Include="L3Q02.cpp" />
+    <ClCompile Include="L3Q03.cpp" />
+    <ClCompile Include="L3Q04.cpp" />
+    <ClCompile Include="L3Q05.cpp" />
+    <ClCompile Include="L4Q01.cpp" />
+    <ClCompile Include="L4Q02.cpp" />
+    <ClCompile Include="L4Q03.cpp" />
+    <ClCompile Include="L4Q04.cpp" />
+    <ClCompile Include="L4Q05.cpp" />
+    <ClCompile Include="2014_03_25_ListaEmSala_MaiorNumeroDigitado.cpp" />
+    <ClCompile Include="2014_04_10_ListaEmSala_NotasMediaEmVetores.cpp" />
+    <ClCompile Include="2014_03_25_ListaEmSala_Tabulada.cpp" />
+    <ClCompile Include="2014_04_10_ListaEmSala_TransformacaoDeVetores.cpp" />
+    <ClCompile Include="2014_04_10_ListaEmSala_VetoresSomasDosValoresPares.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="arquivo1.txt" />
+    <Text Include="arquivo2.txt" />
+    <Text Include="arquivo3.txt" />
+    <Text Include="arquivo4.txt" />
+    <Text Include="arquivo5.txt" />
+    <Text Include="arquivo6.txt" />
+    <Text Include="L9Q03Entrada.txt" />
+    <Text Include="L9Q03Saida.txt" />
+    <Text Include="L9Q04Entrada.txt" />
+    <Text Include="L9Q04Saida.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LACadastroEmArquivo.dat" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

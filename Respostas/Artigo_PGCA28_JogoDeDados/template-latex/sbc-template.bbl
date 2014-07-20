@@ -1,0 +1,47 @@
+\begin{thebibliography}{}
+
+\bibitem[Hirama 2012]{hirama2012treinamento}
+Hirama, K. (2012).
+\newblock {\em Engenharia de Software: Qualidade e Produtividade com
+  Tecnologia}.
+\newblock Pearson Prentice Hall.
+
+\bibitem[Medina and Fertig 2005]{medina2005algoritmos}
+Medina, M. and Fertig, C. (2005).
+\newblock {\em Algoritmos e Programação}.
+\newblock Novatec.
+
+\bibitem[Schlomer 2009]{schlomer2009bibtex}
+Schlomer, N. (2009).
+\newblock Bibtex: How to cite a website.
+\newblock
+  \url{http://nschloe.blogspot.com.br/2009/06/bibtex-how-to-cite-website_21.html}.
+
+\bibitem[Silva 2012]{silva2009bibtex}
+Silva, R. (2012).
+\newblock Mostrando código c++ no latex.
+\newblock
+  \url{http://latexbr.blogspot.com.br/2012/07/dica-mostrando-codigo-c-java-etc-no.html}.
+
+\bibitem[Vasconcelos 2011]{vasconcelos2011latex}
+Vasconcelos, P. (2011).
+\newblock Introdução ao latex beamer.
+\newblock \url{http://www.ncc.up.pt/~pbv/aulas/comtec/beamer.pdf}.
+
+\bibitem[Victorine 2006]{victorine2006treinamento}
+Victorine, V.~M. (2006).
+\newblock {\em Treinamento em Linguagem C++}.
+\newblock Pearson Prentice Hall.
+
+\bibitem[Victorine 2008]{victorine2008treinamento}
+Victorine, V.~M. (2008).
+\newblock {\em Treinamento em Linguagem C}.
+\newblock Pearson Prentice Hall.
+
+\bibitem[Werner 2013]{werner2009caption}
+Werner (2013).
+\newblock How to change listing caption.
+\newblock
+  \url{http://tex.stackexchange.com/questions/64839/how-to-change-listing-caption}.
+
+\end{thebibliography}

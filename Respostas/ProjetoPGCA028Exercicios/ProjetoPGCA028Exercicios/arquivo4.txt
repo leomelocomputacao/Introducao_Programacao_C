@@ -1,0 +1,3 @@
+aaaaa1 aaaaa2
+aaaaa3 aaaaa4
+fputs1

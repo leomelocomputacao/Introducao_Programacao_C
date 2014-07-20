@@ -1,0 +1,116 @@
+//L1Q01 -----------------------------------------------------------------------------
+
+inicio
+
+  variavel real MedidaEmPes, MedidaEmPolegadas, MedidaEmJardas, MedidaEmMilhas
+
+  escrever "Informe a medida em pés: "
+  
+  ler MedidaEmPes
+  
+  MedidaEmPolegadas <- MedidaEmPes * 12.0
+  MedidaEmJardas <- MedidaEmPes / 3.0
+  MedidaEmMilhas <- MedidaEmJardas / 1760.0
+  
+  escrever "\n\nValor convertido em polegadas: ", MedidaEmPolegadas
+  escrever "\nValor convertido em jardas: " , MedidaEmJardas
+  escrever "\nValor convertido em milhas: " , MedidaEmMilhas
+
+fim
+
+
+//L1Q02 -----------------------------------------------------------------------------
+
+inicio
+
+  variavel real precoDeFabrica, percentualDoLucroDoDistribuidor, percentualDosImpostos
+  variavel real valorDoLucroDoDistribuidor, valorDosImpostos, precoFinalDoVeiculo
+  
+  escrever "Informe o preço de fábrica: "
+  ler precoDeFabrica
+
+  escrever "Informe o percentual do lucro do distribuidor: "
+  ler percentualDoLucroDoDistribuidor
+    
+  escrever "Informe o percentual dos impostos: "
+  ler percentualDosImpostos
+  
+  valorDoLucroDoDistribuidor <- precoDeFabrica * (percentualDoLucroDoDistribuidor / 100.0)
+  valorDosImpostos <- precoDeFabrica * (percentualDosImpostos / 100.0)
+  precoFinalDoVeiculo <- precoDeFabrica + valorDoLucroDoDistribuidor + valorDosImpostos 
+  
+  escrever "\nValor do lucro do distribuidor: ", valorDoLucroDoDistribuidor
+  escrever "\nValor dos Impostos: ", valorDosImpostos
+  escrever "\nPreço final do veículo: ", precoFinalDoVeiculo
+  
+fim
+
+
+//L1Q03 -----------------------------------------------------------------------------
+
+inicio
+
+  variavel real pesoDoSacoEmKG, quantidadeDeRacaoDiariaPorGatoEmG, quantidadeDeGatos
+  variavel real pesoDoSacoEmG, quantidadeDeRacaoDiariaEmG, quantidadeDeRacaoRestanteEmG
+  
+  escrever "Informe o peso do saco da ração (em quilogramas): "
+  ler pesoDoSacoEmKG
+  
+  escrever "Informe a quantidade de ração diária por gato (em gramas): "
+  ler quantidadeDeRacaoDiariaPorGatoEmG
+  
+  escrever "Informe a quantidade de gatos: "
+  ler quantidadeDeGatos
+  
+  pesoDoSacoEmG <- pesoDoSacoEmKG * 1000.0
+  quantidadeDeRacaoDiariaEmG <- quantidadeDeRacaoDiariaPorGatoEmG * quantidadeDeGatos
+  quantidadeDeRacaoRestanteEmG <- pesoDoSacoEmG - (quantidadeDeRacaoDiariaEmG * 5.0)
+  
+  escrever "Quantidade restante de ração (em quilogramas): ", quantidadeDeRacaoRestanteEmG / 1000.0
+
+fim
+
+
+//L1Q04 -----------------------------------------------------------------------------
+
+inicio
+
+  variavel real alturaDoDegrauEmCM, alturaDesejadaEmCM, quantidadeDeDegraus
+  
+  escrever "Informe a altura do degrau (em centímetros): "
+  ler alturaDoDegrauEmCM
+ 
+  escrever "Informe a altura que se deseja alcançar (em centímetros): "
+  ler alturaDesejadaEmCM
+  
+  quantidadeDeDegraus <- alturaDesejadaEmCM / alturaDoDegrauEmCM
+  
+  escrever "Quatidade de degraus necessários para alcançar a altura desejada: ", quantidadeDeDegraus
+
+fim
+
+
+//L1Q05 -----------------------------------------------------------------------------
+
+inicio
+
+  variavel real valorDoSalarioMinimo, quatidadeConsumidaDeKW, valorDoKW, valorDoConsumo
+  variavel real valorDoDesconto, valorDoConsumoComDesconto
+  
+  escrever "Informe o valor do salário mínimo: "
+  ler valorDoSalarioMinimo
+  
+  escrever "Informe a quantidade consumida de KW(s): "
+  ler quatidadeConsumidaDeKW
+  
+  valorDoKW <- valorDoSalarioMinimo / 5.0
+  valorDoConsumo <- valorDoKW * quatidadeConsumidaDeKW
+  valorDoDesconto <- valorDoConsumo * 0.15
+  valorDoConsumoComDesconto <- valorDoConsumo - valorDoDesconto
+  
+  escrever "\nValor do KW: ", valorDoKW
+  escrever "\nValor a ser pago: ", valorDoConsumo 
+  escrever "\nValor a ser pago com 15% de desconto: ", valorDoConsumoComDesconto 
+  
+fim
+

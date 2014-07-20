@@ -1,0 +1,517 @@
+%Define tipo de documento, tamanha da fonte e tipo de papel
+\documentclass[12pt,a4paper]{article}
+
+%Importa pacote da SBC que possibilita 
+\usepackage{sbc-template}
+
+%Importa pacote graphicx que possibilita a inserção de imagens EPS
+\usepackage{graphicx}
+
+%Importa pacote url que possibilita a criação URLs ativas (clicáveis) em PDFs
+\usepackage{url}
+ 
+%Importa pacote babel 
+\usepackage[brazil]{babel}   
+
+%Importa pacote inputenc 
+\usepackage[latin1]{inputenc}  
+
+\usepackage{verbatim}
+
+\usepackage{xcolor}
+% Definindo novas cores
+\definecolor{verde}{rgb}{0,0.5,0}
+% Configurando layout para mostrar codigos C++
+\usepackage{listings}
+\lstset{
+  language=C++,
+  basicstyle=\ttfamily\small, 
+  keywordstyle=\color{blue}, 
+  stringstyle=\color{verde}, 
+  commentstyle=\color{red}, 
+  extendedchars=true, 
+  showspaces=false, 
+  showstringspaces=false, 
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true, 
+  backgroundcolor=\color{green!10},
+  breakautoindent=true, 
+  captionpos=b,
+  xleftmargin=0pt,
+}
+
+\renewcommand{\lstlistingname}{Algoritmo}
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}
+
+%Evita linhas com comprimentos maiores, aumenta a separa entre as palavras
+\sloppy
+
+%Define do título do documento
+\title{Desenvolvimento de Simulador de Jogo de Dados Utilizados em Cassinos Americanos}
+
+%Define o(s) autor(es) e referencia a(s) instituição(ões) 
+\author{Leonardo Melo\inst{1}}
+
+%Define o(s) endereço(s) da(s) instituição(ões) e informações do Programa de Pós-Graduação e da Pesquisa
+\address{
+    Programa de Pós-Graduação em Computação Aplicada\\
+    [0.8ex]
+    Departamento de Tecnologia (DTEC)\\
+    Universidade Estadual de Feira de Santana (UEFS)\\
+    Módulo 3, Av. Transnordestina, s/n -- Novo Horizonte\\
+    44.036-900 -- Feira de Santana -- BA -- Brasil
+  %Define o(s) email(s) do(s) autor(es) 
+  \email{leomelocomputacao@gmail.com}
+}
+
+\begin{document} 
+
+\maketitle
+
+\begin{abstract}
+This article describes the details of the development of a common craps in U.S. casinos. The construction of the application considers the development paradigm structured and uses the programing language c++. The construction this program will assist in the analysis of its operation ,  in the game's simulation  and in the demonstration of the real chances to be successful in this type of gambling.
+  	\\[2ex]
+  \textbf{keywords:} 
+Craps, C++, Structured Development Paradigm, Casino, Console Application, Handling Vectors.
+\end{abstract}
+     
+\begin{resumo} 
+Este artigo descreve os detalhes do desenvolvimento de um jogo dados comum em cassinos americanos. A construção da aplicação considerou o paradigma de desenvolvimento de software estruturado e utilizou a linguagem c++. A construção deste programa auxiliará na análise do seu funcionamento, na simulação de jogadas e na demonstração das reais chances de se obter sucesso nesse tipo de jogo de azar.
+%Define as Palavras-chave do documento
+	\\[2ex]
+  \textbf{Palavras-chave:} Jogo de Dados, C++, Paradigma de Desenvolvimento Estruturado, Cassino, Aplicação Console, Manipulação de Vetores. 
+\end{resumo}
+
+\section{Introdução}
+
+Em visita aos Estados Unidos, onde os casinos não são ilegais, Álvaro Ento e um grupo de pesquisadores passaram dias jogando e um jogo que chamou a atenção deles foi o Jogo de Dados. 
+Álvaro registrou o comportamento do jogo para posteriores análises de lucros ou prejuízos de apostadores. 
+
+Então, foi solicitado a Univeridade Estadual de Feira de Santana (UEFS) o desenvolvimento de um programa de computador para auxiliá-los nessas análises. 
+Eles não tem muita familiaridade com interfaces complexas de programas e solicitaram a maior simplicidade possível. 
+
+Um dos pesquisadores tem conhecimento básico de programação nas linguagens C e C++. Visando facilitar uma possível manutenção ou melhoria simples do programa proposto foi solicitado o desenvolvimento em uma dessas linguagens.    
+
+
+\subsection{Funcionamento do Jogo de Dados}
+
+O jogo de dados funciona da seguinte maneira: a cada jogada, o jogador aposta um valor e lança dois dados e o croupier (funcionário do cassino) lança dois dados também. 
+
+Se o jogador acertar o valor exato dos dois dados ganha 6 vezes o valor apostado, se acerta a soma, ganha 3 vezes o valor apostado. 
+
+Se a paridade da soma dos dados do jogador é igual a paridade da soma dos dados do croupier, o jogador ganha de volta metade do valor apostado. 
+Os ganhos não são acumulativos, ou seja, o jogador só pode ganhar por um dos três critérios possíveis (o de maior valor).
+
+\subsection{Casos de Teste}
+
+Com base nos registros dos pesquisadores e nas regras do jogo foi criado um conjunto de casos de teste que contemplam todos os possíveis cenários do jogo. Esses casos de testes são apresentados abaixo:
+
+%\framebox[7cm]{Texto em uma caixa com 7cm  ffff}
+
+\begin{tabular}{|l|} 
+    \hline
+    Digite o valor apostado: 1\\
+    Digite o valor do primeiro dado do jogador: 1\\
+    Digite o valor do segundo dado do jogador: 2\\
+    Digite o valor do primeiro dado do croupier: 2\\
+    Digite o valor do segundo dado do croupier: 1\\
+    O jogador ganhou 6 reais.\\
+    \hline
+\end{tabular}
+
+\begin{tabular}{|l|}
+    \hline    
+    Digite o valor apostado: 1\\
+    Digite o valor do primeiro dado do jogador: 1\\
+    Digite o valor do segundo dado do jogador: 6\\
+    Digite o valor do primeiro dado do croupier: 2\\
+    Digite o valor do segundo dado do croupier: 5\\
+    O jogador ganhou 3 reais.\\
+    \hline
+\end{tabular}
+
+\begin{tabular}{|l|}
+    \hline    
+    Digite o valor apostado: 1\\
+    Digite o valor do primeiro dado do jogador: 1\\
+    Digite o valor do segundo dado do jogador: 2\\
+    Digite o valor do primeiro dado do croupier: 2\\
+    Digite o valor do segundo dado do croupier: 3\\
+    O jogador ganhou 0,50 reais.\\
+    \hline
+\end{tabular}
+
+\begin{tabular}{|l|}
+    \hline    
+    Digite o valor apostado: 1\\
+    Digite o valor do primeiro dado do jogador: 1\\
+    Digite o valor do segundo dado do jogador: 2\\
+    Digite o valor do primeiro dado do croupier: 2\\
+    Digite o valor do segundo dado do croupier: 4\\
+    O jogador perdeu.\\    
+    \hline
+\end{tabular}
+
+\subsection{Requisitos para Análise}
+
+Para auxiliar na análise das partidas do jogo foi solicitado que o programa a ser desenvolvido permita a entrada de várias jogadas até que seja digitado um valor igual ou menor que 0 para o valor apostado. 
+Quando isso acontecer o programa deverá mostrar um conjunto de informações. Abaixo um exemplo do conjunto de informações mencionado anteriormente: 
+
+\begin{tabular}{|l|}
+    \hline    
+    O jogador jogou 4 vez(es).\\
+    O saldo final foi de 5,5 reais.\\
+    O valor do dado que mais saiu foi 2.\\
+    O maior valor ganho em uma partida foi 6 reais.\\
+    O jogador perdeu 1 vez(es).\\
+    \hline
+\end{tabular}
+ 
+\section{Metodologia}
+
+O paradigma de programação utilizado foi o Estruturado devido a maior familiaridade dos desenvolvedores envolvidos no projeto do jogo.  
+
+Para estar em acordo com o requisito de interface com o usuário simples foi criado um programa para executar em ambiente console, aplicação console (Figura~\ref{fig:telaInicialDoJogo}). 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{telaInicialDoJogo.jpg}
+\caption{Tela inicial do Jogo de Dados (Aplicação Console).}
+\label{fig:telaInicialDoJogo}
+\end{figure}
+
+Optou-se pela utilização do IDE Visual Studio por aumentar a produtividade no desenvolvimento e oferecer suporte a C/C++ (Figura~\ref{fig:figuraVS2013}).  
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{telaVS2013.jpg}
+\caption{Tela do IDE Visual Studio 2013 exibindo o código fonte do jogo de dados.}
+\label{fig:figuraVS2013}
+\end{figure}
+
+Constantes foram criadas para auxiliar na manutenção, facilitar a mudança de parâmetros importantes e evitar a repetição de valores dentro do programa. Essas constantes definem os valores mínimo e máximo de um dado, o menor valor de uma aposta, o tamanho do vetor utilizado, dentro outros (Algoritmo~\ref{lst:listaConstante}).
+
+\begin{lstlisting}[caption={Constantes utilizadas.},label={lst:listaConstante}]
+#define MAIOR_VALOR_DE_UM_DADO 6
+#define MENOR_VALOR_DE_UM_DADO 1
+#define MENOR_VALOR_DE_APOSTA_POSSIVEL 1.0
+#define VALOR_MAXIMO_DE_FINALIZACAO_DO_JOGO 0
+#define NUMERO_DA_PRIMEIRA_PARTIDA 1
+#define TAMANHO_DO_VETOR_DE_VALORES_DE_DADO_QUE_SAIRAM 6
+\end{lstlisting}
+
+Todas as variáveis do programa são declaradas no início do programa por questões de organização e centralização e apenas inicializadas quando necessário. O valor apostado em uma partida, o ganho por partida, o saldo final do jogador, os valores dos dados que saíram, a quantidade de partidas são algumas das informações armazenadas durante a execução do sistema (Algoritmo~\ref{lst:listaConstante}).
+
+\begin{lstlisting}[caption={Variáveis do programa.},label={lst:listaVariavel}]
+double valorApostado = 0.0;
+double valorGanhoNaPartida = 0.0;
+double saldoDoJogador = 0.0;
+int valorDoPrimeiroDadoDoJogador;
+int valorDoSegundoDadoDoJogador;
+int valorDoPrimeiroDadoDoCroupier;
+int valorDoSegundoDadoDoCroupier;
+bool dadosDeEntradaValidos = true;
+bool sairDaColetaDeDadosDoJogo = false;
+int quantidadeDePartidas = 0;
+int quantidadeDePartidasSemGanhos = 0;
+double maiorValorGanhoEmUmaPartida = MENOR_VALOR_DE_APOSTA_POSSIVEL;
+int contadoresDeValoresDeDadoQueSairam
+[TAMANHO_DO_VETOR_DE_VALORES_DE_DADO_QUE_SAIRAM];
+int maiorValorDeDadoQueSaiu = 0;
+\end{lstlisting}
+
+É usado um vetor com 6 posições para armazenar os contadores do número de vezes que um valor do dado aparece no jogo. Então, como esse vetor armazena contadores é necessário zerá-los antes de incrementá-los (Algoritmo~\ref{lst:listaZeroVetorContadore}).
+
+\begin{lstlisting}[caption={Zerando vetor de contadores.},label={lst:listaZeroVetorContadore}]
+for (int i = 0; i < TAMANHO_DO_VETOR_DE_VALORES_DE_DADO_QUE_SAIRAM; i++)
+{
+   contadoresDeValoresDeDadoQueSairam[i] = 0;
+}
+\end{lstlisting}
+
+O programa é basicamente composto de uma estrutura de repetição e essa estrutura permanece iterando até que seja digitado um valor menor ou igual a 0. Quando a condição de parada é atingida um comando break interrompe essa repetição (Algoritmo~\ref{lst:listaZeroVetorContadore}).
+
+\begin{lstlisting}[caption={Condição de parada do programa.},label={lst:condicaoStop}]
+if (valorApostado <= VALOR_MAXIMO_DE_FINALIZACAO_DO_JOGO)
+{
+   sairDaColetaDeDadosDoJogo = true;
+   break;
+}
+\end{lstlisting}
+	
+Dentro da estrutura de repetição principal do jogo existem quatro etapas: a captura da informação da quantidade apostada (Algoritmo~\ref{lst:capturaDaQuantidadeApostada}), a captura dos valores dos dados do jogador (Algoritmos~\ref{lst:capturaDoPrimeiroDadoJogador}~e~\ref{lst:capturaDoSegundoDadoJogador}), a captura dos valores dos dados do croupier (Algoritmos~\ref{lst:capturaDoPrimeiroDadoCroupier}~e~\ref{lst:capturaDoSegundoDadoCroupier}) e a presentação do resultado da jogada (Algoritmo~\ref{lst:apresentacaoResultadoJogada}).  		
+\begin{lstlisting}[caption={Captura da quantidade apostada e validações.},label={lst:capturaDaQuantidadeApostada}]
+do{
+   dadosDeEntradaValidos = true;
+  
+   printf_s("\n\n\nDigite o valor apostado (R$): ");
+   scanf_s("%lf", &valorApostado);
+  
+   fflush(stdin);
+  
+   if (valorApostado <= VALOR_MAXIMO_DE_FINALIZACAO_DO_JOGO)
+   {
+      sairDaColetaDeDadosDoJogo = true;
+      break;
+   }
+  
+   if (valorApostado < MENOR_VALOR_DE_APOSTA_POSSIVEL)
+   {
+      printf_s("\n\nEntrada Invalida!\nO valor apostado nao pode ser menor que R$ %.2lf.", MENOR_VALOR_DE_APOSTA_POSSIVEL);
+    
+      dadosDeEntradaValidos = false;
+   }
+  
+} while (!dadosDeEntradaValidos);
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Captura do valor do primeiro dado do jogador e validações.},label={lst:capturaDoPrimeiroDadoJogador}]
+do{
+   dadosDeEntradaValidos = true;
+
+   printf_s("\n\nDigite o valor do primeiro dado do jogador: ");
+   scanf_s("%d", &valorDoPrimeiroDadoDoJogador);
+
+   fflush(stdin);
+
+   if (valorDoPrimeiroDadoDoJogador > MAIOR_VALOR_DE_UM_DADO || valorDoPrimeiroDadoDoJogador < MENOR_VALOR_DE_UM_DADO)
+   {
+      printf_s("\n\nEntrada Invalida!\nO valor do dado nao pode ser menor que %d ou maior que %d.", MENOR_VALOR_DE_UM_DADO, MAIOR_VALOR_DE_UM_DADO);
+
+      dadosDeEntradaValidos = false;
+   }
+
+} while (!dadosDeEntradaValidos);
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Captura do valor do segundo dado do jogador e validações.},label={lst:capturaDoSegundoDadoJogador}]
+do{
+   dadosDeEntradaValidos = true;
+
+   printf_s("\n\nDigite o valor do segundo dado do jogador: ");
+   scanf_s("%d", &valorDoSegundoDadoDoJogador);
+
+   fflush(stdin);
+
+   if (valorDoSegundoDadoDoJogador > MAIOR_VALOR_DE_UM_DADO || valorDoSegundoDadoDoJogador < MENOR_VALOR_DE_UM_DADO)
+   {
+      printf_s("\n\nEntrada Invalida!\nO valor do dado nao pode ser menor que %d ou maior que %d.", MENOR_VALOR_DE_UM_DADO, MAIOR_VALOR_DE_UM_DADO);
+
+      dadosDeEntradaValidos = false;
+   }
+   
+} while (!dadosDeEntradaValidos);
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Captura do valor do primeiro dado do croupier e validações.},label={lst:capturaDoPrimeiroDadoCroupier}]
+do{
+   dadosDeEntradaValidos = true;
+
+   printf_s("\n\nDigite o valor do primeiro dado do croupier: ");
+   scanf_s("%d", &valorDoPrimeiroDadoDoCroupier);
+
+   fflush(stdin);
+
+   if (valorDoPrimeiroDadoDoCroupier > MAIOR_VALOR_DE_UM_DADO || valorDoPrimeiroDadoDoCroupier < MENOR_VALOR_DE_UM_DADO)
+   {
+      printf_s("\n\nEntrada Invalida!\nO valor do dado nao pode ser menor que %d ou maior que %d.", MENOR_VALOR_DE_UM_DADO, MAIOR_VALOR_DE_UM_DADO);
+
+      dadosDeEntradaValidos = false;
+   }
+
+} while (!dadosDeEntradaValidos);
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Captura do valor do segundo dado do croupier e validações.},label={lst:capturaDoSegundoDadoCroupier}]
+do{
+   dadosDeEntradaValidos = true;
+
+   printf_s("\n\nDigite o valor do segundo dado do croupier: ");
+   scanf_s("%d", &valorDoSegundoDadoDoCroupier);
+
+   fflush(stdin);
+
+   if (valorDoSegundoDadoDoCroupier > MAIOR_VALOR_DE_UM_DADO || valorDoSegundoDadoDoCroupier < MENOR_VALOR_DE_UM_DADO)
+   {
+      printf_s("\n\nEntrada Invalida!\nO valor do dado nao pode ser menor que %d ou maior que %d.", MENOR_VALOR_DE_UM_DADO, MAIOR_VALOR_DE_UM_DADO);
+
+      dadosDeEntradaValidos = false;
+   }
+
+} while (!dadosDeEntradaValidos);
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Cálculos e  presentação do resultado da jogada.},label={lst:apresentacaoResultadoJogada}]
+bool ganhouAlgumValor = false;
+
+if ((valorDoPrimeiroDadoDoJogador == valorDoPrimeiroDadoDoCroupier && valorDoSegundoDadoDoJogador == valorDoSegundoDadoDoCroupier) || (valorDoPrimeiroDadoDoJogador == valorDoSegundoDadoDoCroupier && valorDoSegundoDadoDoJogador == valorDoPrimeiroDadoDoCroupier))
+{
+   valorGanhoNaPartida = valorApostado * 6;
+   ganhouAlgumValor = true;
+
+   saldoDoJogador += valorGanhoNaPartida;
+
+   if (maiorValorGanhoEmUmaPartida < valorGanhoNaPartida)
+   {
+      maiorValorGanhoEmUmaPartida = valorGanhoNaPartida;
+   }
+
+   printf_s("\n\nO jogador ganhou R$ %.2lf.", valorGanhoNaPartida);
+}
+
+if (!ganhouAlgumValor)
+{
+   if ((valorDoPrimeiroDadoDoJogador + valorDoSegundoDadoDoJogador) == (valorDoPrimeiroDadoDoCroupier + valorDoSegundoDadoDoCroupier))
+   {
+      valorGanhoNaPartida = valorApostado * 3;
+      ganhouAlgumValor = true;
+
+      saldoDoJogador += valorGanhoNaPartida;
+
+      if (maiorValorGanhoEmUmaPartida < valorGanhoNaPartida)
+      {
+         maiorValorGanhoEmUmaPartida = valorGanhoNaPartida;
+      }
+
+      printf_s("\n\nO jogador ganhou R$ %.2lf.", valorGanhoNaPartida);
+   }
+}
+
+if (!ganhouAlgumValor)
+{
+   if (((valorDoPrimeiroDadoDoJogador + valorDoSegundoDadoDoJogador) % 2 == 0) && ((valorDoPrimeiroDadoDoCroupier + valorDoSegundoDadoDoCroupier) % 2 == 0) || ((valorDoPrimeiroDadoDoJogador + valorDoSegundoDadoDoJogador) % 2 != 0) && ((valorDoPrimeiroDadoDoCroupier + valorDoSegundoDadoDoCroupier) % 2 != 0))
+   {
+      valorGanhoNaPartida = valorApostado / 2;
+      ganhouAlgumValor = true;
+
+      saldoDoJogador += valorGanhoNaPartida;
+
+      if (maiorValorGanhoEmUmaPartida < valorGanhoNaPartida)
+      {
+         maiorValorGanhoEmUmaPartida = valorGanhoNaPartida;
+      }
+
+      printf_s("\n\nO jogador ganhou R$ %.2lf.", valorGanhoNaPartida);
+   }
+}
+
+if (!ganhouAlgumValor)
+{
+   valorGanhoNaPartida = 0.0;
+
+   quantidadeDePartidasSemGanhos++;
+
+   printf_s("\n\nO jogador perdeu.");
+}
+\end{lstlisting}
+
+Após o encerramento das partidas é apresentado um conjunto de informações, inclusive informações estatísticas, a respeito de todas as partidas (Algoritmo~\ref{lst:apresentacaoDadosFinais}). 
+
+\begin{lstlisting}[caption={Apresentação dos dados de encerramento do programa.},label={lst:apresentacaoDadosFinais}]
+printf_s("\n\n\n\nJogo Encerrado!");
+
+printf_s("\n\n\nO jogador jogou %d vez(es).", quantidadeDePartidas);
+printf_s("\n\nO saldo final foi de %.2lf reais.", saldoDoJogador);
+
+for (int i = 0; i < TAMANHO_DO_VETOR_DE_VALORES_DE_DADO_QUE_SAIRAM; i++)
+{
+   if (contadoresDeValoresDeDadoQueSairam[i] > maiorValorDeDadoQueSaiu)
+   {
+      maiorValorDeDadoQueSaiu = contadoresDeValoresDeDadoQueSairam[i];
+   }
+}
+
+for (int i = 0; i < TAMANHO_DO_VETOR_DE_VALORES_DE_DADO_QUE_SAIRAM; i++)
+{
+   if (contadoresDeValoresDeDadoQueSairam[i] == maiorValorDeDadoQueSaiu)
+   {
+      printf_s("\n\nO valor do dado que mais saiu foi %d, %d vez(es).", i + 1, contadoresDeValoresDeDadoQueSairam[i]);
+   }
+}
+
+printf_s("\n\nO maior valor ganho em uma partida foi %.2lf reais.", maiorValorGanhoEmUmaPartida);
+printf_s("\n\nO jogador perdeu %d vez(es).", quantidadeDePartidasSemGanhos);
+\end{lstlisting}
+
+Em vários pontos do código fonte é possível perceber a presença de contadores em pontos estratégicos. Esses contadores são essenciais para a correta apresentação dos dados após o encerramento das partidas.
+
+\section{Resultados}
+
+Nesta seção serão apresentados os resultados dos testes do programa e sua correspondência com os casos de teste demonstrando o correto funcionamento do jogo. 
+
+Ao apostar 1 real, o primeiro valor do dado do jogador ser 1, o segundo valor do dado do jogador ser 2, o primeiro valor do dado do croupier ser 2 e o segundo valor do dado do croupier ser 1, o jogador ganha 6 reais (Figura~\ref{fig:telaTeste1}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.9\textwidth]{teste1.jpg}
+\caption{Tela do sistema executando a primeira aposta.}
+\label{fig:telaTeste1}
+\end{figure}
+
+Ao apostar 1 real, o primeiro valor do dado do jogador ser 1, o segundo valor do dado do jogador ser 6, o primeiro valor do dado do croupier ser 2 e o segundo valor do dado do croupier ser 5, o jogador ganha 3 reais (Figura~\ref{fig:telaTeste2}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.9\textwidth]{teste2.jpg}
+\caption{Tela do sistema executando a segunda aposta.}
+\label{fig:telaTeste2}
+\end{figure}
+
+Ao apostar 1 real, o primeiro valor do dado do jogador ser 1, o segundo valor do dado do jogador ser 2, o primeiro valor do dado do croupier ser 2 e o segundo valor do dado do croupier ser 3, o jogador ganha 0,5 reais (Figura~\ref{fig:telaTeste3}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.9\textwidth]{teste3.jpg}
+\caption{Tela do sistema executando a terceira aposta.}
+\label{fig:telaTeste3}
+\end{figure}
+
+
+Ao apostar 1 real, o primeiro valor do dado do jogador ser 1, o segundo valor do dado do jogador ser 2, o primeiro valor do dado do croupier ser 2 e o segundo valor do dado do croupier ser 4, o jogador perde todo dinheiro apostado na rodada (Figura~\ref{fig:telaTeste4}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.9\textwidth]{teste4.jpg}
+\caption{Tela do sistema executando a quarta aposta.}
+\label{fig:telaTeste4}
+\end{figure}
+
+Ao encerrar esse grupo de testes os dados de encerramento tem que informar que houve 4 jogadas, o maior valor ganho em uma partida foi 6 reais , o jogador perdeu 1 vez, o número de dado que mais saiu foi o 2 (7 vezes) e que o saldo do jogador é de 5,5 reais (Figura~\ref{fig:telaTeste5}). 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.9\textwidth]{teste5.jpg}
+\caption{Tela do sistema mostrando os dados de encerramento do jogo.}
+\label{fig:telaTeste5}
+\end{figure}
+
+\section{Discussões}
+
+Apesar do programa ser implementado em conformidade com os casos de teste, uma discussão surgiu sobre um conceito importante e que pode ser motivo de uma futura manutenção, o saldo final. 
+
+Pela definição mais simples, para se obter o saldo basta subtrair o total apostado do total ganho. Então, se partirmos dessa definição devemos considerar que quando o jogador realiza a primeira aposta ele fica com saldo negativo (menos x reais no bolso).
+
+Uma outra visão (aparentemente mais lógica) é que o jogador sempre começa com um valor inicial a ser apostado e mesmo que aposte toda quantia na primeira jogada ele não fica com saldo negativo e sim zerado.
+
+A primeira visão foi implementada por se adequar as casos de teste. Mas, acredita-se que a segunda definição é a correta pois não é possível dever ao cassino.
+
+\section{Conclusão}
+
+Os resultados do teste demonstram que o funcionamento do programa está correto, atingindo assim o objetivo proposto. 
+O programa desenvolvido ajudará os pesquisadores em suas análises e demonstrações dessas análises. Um proposta de trabalho futuro seria o desenvolvimento do mesmo programa no paradigma orientado a objetos para uma comparação entres as duas abordagens.
+
+%Referencia sem citação
+\nocite{medina2005algoritmos}
+\nocite{victorine2008treinamento}
+\nocite{victorine2006treinamento}
+\nocite{hirama2012treinamento}
+\nocite{schlomer2009bibtex}
+\nocite{silva2009bibtex}
+\nocite{werner2009caption}
+\nocite{vasconcelos2011latex}
+
+\bibliographystyle{sbc}
+\bibliography{sbc-template}
+
+\end{document}
